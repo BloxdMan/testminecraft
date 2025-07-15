@@ -1,0 +1,123 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Voxel World</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #87CEEB;
+            font-family: 'Courier New', monospace;
+        }
+        canvas {
+            display: block;
+        }
+        #ui {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        #hotbar {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background: rgba(0, 32, 64, 0.9);
+            border-top: 2px solid #4a90e2;
+        }
+        .hotbar-slot {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #2c5282;
+            background: rgba(0, 64, 128, 0.8);
+            margin: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .hotbar-slot.active {
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.2);
+        }
+        #crosshair {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+        }
+        #crosshair::before, #crosshair::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        #crosshair::before {
+            width: 2px;
+            height: 20px;
+            left: 9px;
+            top: 0;
+        }
+        #crosshair::after {
+            width: 20px;
+            height: 2px;
+            left: 0;
+            top: 9px;
+        }
+        #instructions {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://esm.sh/three@0.160.0?dev",
+                "three/": "https://esm.sh/three@0.160.0&dev/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="crosshair"></div>
+    <div id="instructions">
+        Click to start • WASD to move • Space to jump<br>
+        Left click: break block • Right click: place block<br>
+        Numbers 1-5: select block type
+    </div>
+    <div id="ui">
+        <div id="hotbar">
+            <div class="hotbar-slot active" data-slot="0">Grass</div>
+            <div class="hotbar-slot" data-slot="1">Stone</div>
+            <div class="hotbar-slot" data-slot="2">Wood</div>
+            <div class="hotbar-slot" data-slot="3">Dirt</div>
+            <div class="hotbar-slot" data-slot="4">Water</div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    <script src="https://storage.googleapis.com/rosebud_staticfiles/ChatManager.js"></script>
+    <script src="https://storage.googleapis.com/rosebud_staticfiles/ImageGenerator.js"></script>
+    <script src="https://storage.googleapis.com/rosebud_staticfiles/ProgressLogger.js"></script>
+    <script src="https://storage.googleapis.com/rosebud_staticfiles/OGP.js"></script>
+</body>
+</html>
+
